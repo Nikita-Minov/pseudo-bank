@@ -3,7 +3,34 @@
 }
 
 .header__title {
-    color: #ffffff;
+    color: #FFF5F5;
     font-size: 32px;
     padding: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.header__title:hover {
+     color: #C1CFFF;
+}
+
+.header__username {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    height: min-content;
+    margin: 0 10px;
+    font-weight: 500;
+}
+
+.header__username {
+    cursor: pointer;
+}
+
+.header__logout{
+    width: 42px;
+    margin: 0 10px;
+}
+
+.header__logout:hover {
+    cursor: pointer;
 }
