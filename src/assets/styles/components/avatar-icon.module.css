@@ -1,0 +1,11 @@
+.avatar {
+    background-color: #ffffff;
+}
+
+.avatar img {
+    width: 48px;
+}
+
+.avatar:hover {
+    cursor: pointer;
+}

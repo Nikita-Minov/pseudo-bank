@@ -1,0 +1,9 @@
+.header {
+    background-color: #030852;
+}
+
+.header__title {
+    color: #ffffff;
+    font-size: 32px;
+    padding: 20px;
+}
