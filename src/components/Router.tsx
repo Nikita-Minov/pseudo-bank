@@ -1,6 +1,7 @@
 import {Outlet} from "react-router-dom";
-import {Col, Row} from "antd";
+import {Row} from "antd";
 import Header from "./Header/Header.tsx";
+import NavBar from "./Navbar/Navbar.tsx";
 
 
 
@@ -9,13 +10,8 @@ const Router = () => {
 		<>
 			<Header/>
 			<Row>
-				<Col xl={4}>
-					NavBar
-				</Col>
-				<Col xl={20}>
-					<h1>Body</h1>
-					<Outlet/>
-				</Col>
+				<NavBar/>
+				<Outlet/>
 			</Row>
 		</>
 	)
