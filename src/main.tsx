@@ -4,6 +4,7 @@ import './global.css';
 import Router from "./components/Router.tsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Home from "./pages/Home.tsx";
+import History from "./pages/History.tsx";
 
 const router = createBrowserRouter([
 	{
@@ -12,6 +13,10 @@ const router = createBrowserRouter([
 			{
 				path: "/",
 				element: <Home/>,
+			},
+			{
+				path: "/history",
+				element: <History/>,
 			},
 		]
 	}
