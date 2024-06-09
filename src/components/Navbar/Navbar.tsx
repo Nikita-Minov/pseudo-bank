@@ -19,10 +19,10 @@ const NavBar = () => {
 					</div>
 				<div className={styles.navbar__balanceBlock}>
 					<Row justify="center">
-						<Link to='/' className={styles.navbar__link}>
+						<Link to={'/'} className={styles.navbar__link}>
 							Перевести
 						</Link>
-						<Link to='/history' className={styles.navbar__link}>
+						<Link to={'/history'} className={styles.navbar__link}>
 							История операций
 						</Link>
 						<Link to='/' className={styles.navbar__link}>

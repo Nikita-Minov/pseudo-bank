@@ -1,19 +1,23 @@
 import {Col, Row, Space, Table} from "antd";
-import React from "react";
+import {observer} from "mobx-react";
+import {useStore} from "../store/store.ts";
 
 const History = () => {
 
+	//const history = new HistoryStore()
+
+	const { historyStore } = useStore();
 
 	const dataSource = [];
 
-	for(let i = 0; i < 100; i++) {
+	historyStore.transfers.forEach((transfer, index) => {
 		dataSource.push(	{
-			key: `${i}`,
-			recipient: 'Иванов Иван',
-			date: '21.05.2024',
-			sum: '10.000',
+			key: `${index}`,
+			recipient: transfer.recipient,
+			date: transfer.date.toFormat('dd.LL.yyyy'),
+			sum: transfer.sum,
 		});
-	}
+	})
 
 	const columns = [
 		{
@@ -59,4 +63,4 @@ const History = () => {
 	)
 }
 
-export default History;
+export default observer(History);

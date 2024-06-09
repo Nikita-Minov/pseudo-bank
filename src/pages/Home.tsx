@@ -1,30 +1,24 @@
 import MoneyTransfer from "moneyTransfer/MoneyTransfer";
 import {Col, Row} from "antd";
-import {useState} from "react";
+import {ITransfer} from "../store/history.ts";
+import {useStore} from "../store/store.ts";
 
 interface Recipient {
 	value: string;
 	label: string;
 }
 
-interface Transfer {
-	recipient: string;
-	date: Date;
-	sum: string;
-}
-
-
 function Home() {
+
+	const { historyStore } = useStore();
 	const recipients: Array<Recipient> = [
 		{ value: 'Иванов Иван', label: 'Иванов Иван' },
 		{ value: 'Петров Пётр', label: 'Петров Пётр' },
 	];
 
-	const [transfers, setTransfers] = useState<Array<Transfer>>([]);
-
-	const addTransfer = (transfer: Transfer) => {
-		setTransfers([...transfers, transfer]);
-		alert(JSON.stringify(transfer));
+	const addTransfer = (transfer: ITransfer) => {
+		historyStore.addTransfer(transfer);
+		alert(JSON.stringify(historyStore.transfers));
 	}
 
 
