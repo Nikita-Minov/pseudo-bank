@@ -1,14 +1,21 @@
 import {Col, Row, Space, Table} from "antd";
 import {observer} from "mobx-react";
 import {useStore} from "../store/store.ts";
+import {Link} from "react-router-dom";
+import {Recipient} from "../store/transfer.ts";
 
 const History = () => {
 
 	//const history = new HistoryStore()
 
-	const { historyStore } = useStore();
+	const { historyStore, transferStore } = useStore();
 
 	const dataSource = [];
+
+	const repeatTransfer = (recipient: Recipient, sum: string) => {
+		transferStore.setSum(sum);
+		transferStore.setSelectedRecipient(recipient);
+	}
 
 	historyStore.transfers.forEach((transfer, index) => {
 		dataSource.push(	{
@@ -38,9 +45,9 @@ const History = () => {
 		{
 			title: 'Действие',
 			key: 'action',
-			render: () => (
+			render: (_, record) => (
 				<Space size="middle">
-					<a>Повторить</a>
+					<Link onClick={() => repeatTransfer({value: record.recipient, label: record.recipient}, record.sum)} to={'/'}>Повторить</Link>
 				</Space>
 			),
 		},
