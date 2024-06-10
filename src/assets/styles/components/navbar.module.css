@@ -13,6 +13,8 @@
     font-size: 36px;
     color: rgba(35, 51, 109, 0.85);
     margin-bottom: 5px;
+    width: 100%;
+    text-align: center;
 }
 
 .navbar__text {

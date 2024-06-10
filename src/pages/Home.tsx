@@ -31,13 +31,20 @@ interface Recipient {
 
 function Home() {
 
-	const { historyStore, transferStore } = useStore();
+	const { historyStore, transferStore, profileStore, modalsStore } = useStore();
 
 	const addTransfer = (transfer: ITransfer) => {
-		historyStore.addTransfer(transfer);
-		transferStore.setSelectedRecipient({value: '', label: ''});
-		transferStore.setSum('');
-		alert(JSON.stringify(transferStore.sum + transferStore.selectedRecipient.label));
+		if(profileStore.balance < +transfer.sum) {
+		 modalsStore.setTransferModalActive(true);
+		 modalsStore.setTransferModalText("Недостаточно денег для перевода!");
+		} else {
+			historyStore.addTransfer(transfer);
+			transferStore.setSelectedRecipient({value: '', label: ''});
+			transferStore.setSum('');
+			profileStore.setBalance(profileStore.balance - +transfer.sum);
+			modalsStore.setTransferModalActive(true);
+			modalsStore.setTransferModalText("Перевод проведён успешно");
+		}
 	}
 
 	const ObserveMoneyTransfer = observer(({addTransfer, recipient, recipients, sum}: MoneyTransferProps) => (

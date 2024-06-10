@@ -11,7 +11,7 @@ class HistoryStore {
 	transfers: ITransfer[] = [{
 				recipient: 'Иванов Иван',
 				date: DateTime.now(),
-				sum: '10.000',
+				sum: '10000',
 			}];
 
 	constructor() {

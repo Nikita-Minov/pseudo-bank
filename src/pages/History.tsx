@@ -3,10 +3,9 @@ import {observer} from "mobx-react";
 import {useStore} from "../store/store.ts";
 import {Link} from "react-router-dom";
 import {Recipient} from "../store/transfer.ts";
+import {numberToString} from "../utils/numberToString.ts";
 
 const History = () => {
-
-	//const history = new HistoryStore()
 
 	const { historyStore, transferStore } = useStore();
 
@@ -22,7 +21,7 @@ const History = () => {
 			key: `${index}`,
 			recipient: transfer.recipient,
 			date: transfer.date.toFormat('dd.LL.yyyy'),
-			sum: transfer.sum,
+			sum: numberToString(transfer.sum),
 		});
 	})
 
@@ -47,14 +46,11 @@ const History = () => {
 			key: 'action',
 			render: (_, record) => (
 				<Space size="middle">
-					<Link onClick={() => repeatTransfer({value: record.recipient, label: record.recipient}, record.sum)} to={'/'}>Повторить</Link>
+					<Link onClick={() => repeatTransfer({value: record.recipient, label: record.recipient}, record.sum.replaceAll(".", ""))} to={'/'}>Повторить</Link>
 				</Space>
 			),
 		},
 	];
-
-
-
 
 	return (
 		<Col xl={20}>

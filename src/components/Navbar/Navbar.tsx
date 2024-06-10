@@ -1,8 +1,14 @@
 import styles from '../../assets/styles/components/navbar.module.css';
 import {Col, Row} from "antd";
 import {Link} from "react-router-dom";
+import {useStore} from "../../store/store.ts";
+import {observer} from "mobx-react";
+import {numberToString} from "../../utils/numberToString.ts";
 
 const NavBar = () => {
+
+	const { profileStore } = useStore();
+
 	return (
 		<>
 		<Col xl={4}>
@@ -10,7 +16,7 @@ const NavBar = () => {
 					<div className={styles.navbar__balanceBlock}>
 						<Row justify="center">
 							<p className={styles.navbar__balanceBlock__value}>
-								100 500.00
+								{numberToString(profileStore.balance.toString())}
 							</p>
 							<p className={styles.navbar__text}>
 								Остаток средств
@@ -37,4 +43,4 @@ const NavBar = () => {
 		;
 }
 
-export default NavBar;
+export default observer(NavBar);
