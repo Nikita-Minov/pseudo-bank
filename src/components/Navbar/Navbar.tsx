@@ -31,7 +31,7 @@ const NavBar = () => {
 						<Link to={'/history'} className={styles.navbar__link}>
 							История операций
 						</Link>
-						<Link to='/' className={styles.navbar__link}>
+						<Link to='/friends' className={styles.navbar__link}>
 							Список друзей
 						</Link>
 					</Row>

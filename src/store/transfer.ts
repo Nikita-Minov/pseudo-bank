@@ -30,6 +30,10 @@ class TransferStore {
 	setSelectedRecipient(recipient: Recipient) {
 		this.selectedRecipient = recipient;
 	}
+
+	addRecipient(name: string) {
+		this.recipients.push({ label: name, value: name });
+	}
 }
 
 
