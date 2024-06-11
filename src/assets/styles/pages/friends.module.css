@@ -7,16 +7,30 @@
     grid-gap: 20px;
 }
 
+.friendCard {
+    width: 250px;
+    height: 350px;
+}
 
-.friends__card__username {
-    font-family: 'Roboto', sans-serif;
+.friendCard__username {
     font-weight: 500;
     font-size: 20px;
     width: 100%;
     text-align: center;
 }
 
-.friends__addForm {
+.addForm {
     padding: 40px;
     max-width: 500px;
+}
+
+.addForm__input {
+    border: 1px solid #061178;
+}
+
+.addForm__btn {
+    background-color: #061178;
+    font-size: 15px;
+    color: #ffffff;
+    border: none;
 }

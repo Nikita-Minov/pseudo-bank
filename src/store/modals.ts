@@ -1,23 +1,24 @@
-import {makeAutoObservable} from "mobx";
-
+import { makeAutoObservable } from "mobx";
 
 class ModalsStore {
+  isTransferModalActive: boolean = false;
+  transferModalText: string = "";
 
-	isTransferModalActive: boolean = false;
-	transferModalText: string = "";
+  constructor() {
+    makeAutoObservable(this);
+  }
 
-	constructor() {
-		makeAutoObservable(this)
-	}
+  openTransferModal() {
+    this.isTransferModalActive = true;
+  }
 
-	setTransferModalActive(value: boolean) {
-		this.isTransferModalActive = value;
-	}
+  closeTransferModal() {
+    this.isTransferModalActive = false;
+  }
 
-	setTransferModalText(newText: string) {
-		this.transferModalText = newText;
-	}
+  setTransferModalText(newText: string) {
+    this.transferModalText = newText;
+  }
 }
-
 
 export default ModalsStore;

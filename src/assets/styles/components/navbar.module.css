@@ -8,7 +8,6 @@
 }
 
 .navbar__balanceBlock__value {
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 36px;
     color: rgba(35, 51, 109, 0.85);
@@ -18,14 +17,12 @@
 }
 
 .navbar__text {
-    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 16px;
     color: rgba(0, 0, 0, 0.85);
 }
 
 .navbar__link {
-    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-size: 32px;
     color: rgba(6, 17, 120, 1);

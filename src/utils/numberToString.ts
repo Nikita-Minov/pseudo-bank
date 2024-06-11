@@ -1,3 +1,6 @@
 export function numberToString(value: string) {
-	return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  if (value) {
+    return value.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+  return "";
 }

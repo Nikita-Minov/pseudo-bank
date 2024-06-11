@@ -1,40 +1,42 @@
-import {makeAutoObservable} from "mobx";
-
+import { makeAutoObservable } from "mobx";
 
 export interface Recipient {
-	value: string;
-	label: string;
+  value: string;
+  label: string;
 }
 
 class TransferStore {
-	recipients: Array<Recipient> = [
-		{ value: 'Иванов Иван', label: 'Иванов Иван' },
-		{ value: 'Петров Пётр', label: 'Петров Пётр' },
-	];
+  recipients: Array<Recipient> = [
+    { value: "Иванов Иван", label: "Иванов Иван" },
+    { value: "Петров Пётр", label: "Петров Пётр" },
+  ];
 
-	selectedRecipient: Recipient = {
-		value: '',
-		label: '',
-	}
+  selectedRecipient: Recipient = {
+    value: "",
+    label: "",
+  };
 
-	sum = '';
+  sum = 0;
 
-	constructor() {
-		makeAutoObservable(this)
-	}
+  constructor() {
+    makeAutoObservable(this);
+  }
 
-	setSum(sum: string) {
-		this.sum = sum;
-	}
+  setSum(sum: number) {
+    this.sum = sum;
+  }
 
-	setSelectedRecipient(recipient: Recipient) {
-		this.selectedRecipient = recipient;
-	}
+  setSelectedRecipient(recipient: Recipient) {
+    this.selectedRecipient = recipient;
+  }
 
-	addRecipient(name: string) {
-		this.recipients.push({ label: name, value: name });
-	}
+  addRecipient(name: string) {
+    this.recipients.push({ label: name, value: name });
+  }
+
+  setRecipients(recipients: Array<Recipient>) {
+    this.recipients = recipients;
+  }
 }
-
 
 export default TransferStore;

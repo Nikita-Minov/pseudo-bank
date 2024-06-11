@@ -1,27 +1,26 @@
-import {makeAutoObservable} from "mobx";
-import {DateTime} from 'luxon';
+import { makeAutoObservable } from "mobx";
 
-export interface ITransfer {
-	recipient: string;
-	date: DateTime;
-	sum: string;
+export interface Transfer {
+  recipient: string;
+  date: string;
+  sum: number;
 }
 
 class HistoryStore {
-	transfers: ITransfer[] = [{
-				recipient: 'Иванов Иван',
-				date: DateTime.now(),
-				sum: '10000',
-			}];
+  transfers: Transfer[] = [];
 
-	constructor() {
-		makeAutoObservable(this)
-	}
+  constructor() {
+    makeAutoObservable(this);
+  }
 
-	addTransfer(transfer: ITransfer) {
-		this.transfers.push(transfer);
-	}
+  addTransfer(transfer: Transfer) {
+    console.log(transfer);
+    this.transfers.push(transfer);
+  }
+
+  setHistory(history: Transfer[]) {
+    this.transfers = history;
+  }
 }
-
 
 export default HistoryStore;

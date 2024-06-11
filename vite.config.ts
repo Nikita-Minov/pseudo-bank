@@ -10,6 +10,7 @@ export default defineConfig({
 			remotes: {
 				moneyTransfer: "http://localhost:5174/assets/remoteEntry.js",
 			},
+
 			shared: ["react", "react-dom"],
 		}),
 	],
@@ -18,5 +19,6 @@ export default defineConfig({
 		target: "esnext",
 		minify: false,
 		cssCodeSplit: false,
+
 	}
 })

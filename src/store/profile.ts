@@ -1,18 +1,15 @@
-import {makeAutoObservable} from "mobx";
-
+import { makeAutoObservable } from "mobx";
 
 class ProfileStore {
+  balance = 10000000;
 
-	balance = 10000000;
+  constructor() {
+    makeAutoObservable(this);
+  }
 
-	constructor() {
-		makeAutoObservable(this)
-	}
-
-	setBalance(newBalance: number): void {
-		this.balance = newBalance;
-	}
+  setBalance(newBalance: number): void {
+    this.balance = newBalance;
+  }
 }
-
 
 export default ProfileStore;

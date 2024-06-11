@@ -1,0 +1,10 @@
+.history {
+    height: 93vh;
+}
+
+.historyTable {
+    width: 70%;
+    border: 1px solid #ccd5e8;
+    border-radius: 5px;
+    font-weight: 400;
+}
